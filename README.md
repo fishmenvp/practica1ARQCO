@@ -1,7 +1,7 @@
 # Practica ARQCO
 Archivos de la Practica 1.
 ## Setting up
-`git clone https://github.com/manudroid19/ApuntesEstructuras.git`
+`https://github.com/fishmenvp/practica1ARQCO.git`
 ## Guia chula de Git
 http://rogerdudler.github.io/git-guide/
 ## Resumen
