@@ -1,5 +1,5 @@
 # Practica ARQCO
-Apuntes de IEDO
+Archivos de la Practica 1.
 ## Setting up
 `git clone https://github.com/manudroid19/ApuntesEstructuras.git`
 ## Guia chula de Git
