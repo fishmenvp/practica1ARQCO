@@ -9,10 +9,10 @@ void main(int argc, char *argv[]){
 	
 	int R = atoi(argv[1]);
 	int D = atoi(argv[2]);
-
-	int e[R];
-	double suma = 0, S[10], *A, ciclos;
 	
+	int *e = (int*)malloc(R*sizeof(int));
+	double suma = 0, S[10], *A, ciclos;
+        	
 	A = (double*)_mm_malloc(D*R*sizeof(double), 64);
 	
 	//Se inicializan los vectores A y e

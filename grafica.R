@@ -2,16 +2,12 @@
 
 resultados = read.table("resultados.txt", header = TRUE)
 
-resultados$fallos = (resultados$fallos)/10000 
-
 head(resultados)
 
-filter(resultados, hilos == 2 & numero == 2000)$fallos
-
-#install.packages("dplyr")
+install.packages("dplyr")
 library("dplyr")
 
-nombres= list(x = c(seq(2000, 20000, by=2000)),  z = c(seq(2, 12, by=2))) 
+nombres= list(x = c(seq(, 20000, by=2000)),  z = c(seq(2, 12, by=2))) 
 datos = matrix (nrow = 10, ncol = 6, dimnames = nombres)
 
 for (i in c(seq(2, 12, by=2))) {
