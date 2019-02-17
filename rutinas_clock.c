@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <unistd.h>
 
 
 void start_counter();
@@ -64,25 +64,3 @@ double mhz(int verbose, int sleeptime)
  return rate;
  }
 
-
-
-
-int main(){
-double ck;
-
-
-start_counter();
-
-/* Poñer aquí o código a medir */
-
-ck=get_counter();
-
-printf("\n Clocks=%1.10lf \n",ck);
-
-/* Esta rutina imprime a frecuencia de reloxo estimada coas rutinas start_counter/get_counter */
-mhz(1,1);
-
-
- 
-return 0;
-}
