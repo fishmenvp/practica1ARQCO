@@ -2,17 +2,20 @@
 
 gcc -o computos.out computos.c rutinas_clock.c -msse3
 
-echo R Ciclos D > resultados.txt
+echo L Ciclos D > resultados.txt
 
-LISTA1="$((2**16)) $((3*2**16)) $((2**19)) $((3*2**18)) $((2**21)) $((2**22)) $((2**23))"
-LISTA2="1 6 10 20 24"
+#S1=$((2**9))
+#S2=$((2**12))
 
-for R in $LISTA1
+LISTA1="$((2**8)) $((3*2**8)) $((2**11)) $((3*2**10)) $((2**13)) $((2**14)) $((2**15))"
+LISTA2="1 2 16 64 95"
+
+for L in $LISTA1
 do
 	for D in $LISTA2
 	do
-		echo $R
-		./computos.out $R $D >> auxiliar.txt
+		echo $L
+		./computos.out $L $D >> auxiliar.txt
 	done
 done	
 

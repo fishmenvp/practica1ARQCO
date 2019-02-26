@@ -4,17 +4,19 @@ resultados = read.table("resultados.txt", header = TRUE)
 
 head(resultados)
 
-install.packages("dplyr")
+#install.packages("dplyr")
 library("dplyr")
 
-nombres= list(x = c(seq(, 20000, by=2000)),  z = c(seq(2, 12, by=2))) 
-datos = matrix (nrow = 10, ncol = 6, dimnames = nombres)
+x = c(2**8,3*2**8,2**11,3*2**10,2**13,2**14,2**15)
+z = c(1, 2, 16, 64, 95)
+nombres= list(z,  x) 
 
-for (i in c(seq(2, 12, by=2))) {
-  for (j in c(seq(2000, 20000, by=2000)))
-    datos[j/2000, i/2] = filter(resultados, hilos == i & numero == j)$fallos
+datos = matrix (nrow = 5, ncol = 7, dimnames = nombres)
+
+for (i in c(seq(1, 5, by=1))) {
+  for (j in c(seq(1, 7, by=1)))
+    datos[i, j] = filter(resultados, D == z[i] & L == x[j])$Ciclos
 }
 
-barplot(datos, col=c("black", "brown3", "darkgoldenrod3", "dodgerblue3", "darkgrey", 
-                     "darkgoldenrod4", "darkorange3", "darkorchid3", "firebrick3", "deeppink3") , border="black", 
-        font.axis=2, beside=T, legend=rownames(data), xlab="Hilos", ylab="Porcentaje", font.lab=2)
+barplot(datos, col=c("black", "brown3", "darkgoldenrod3", "dodgerblue3", "darkgrey") , border="black", 
+        font.axis=2, beside=T, legend=rownames(data), xlab="L", ylab="Ciclos", font.lab=2)
