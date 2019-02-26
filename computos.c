@@ -6,13 +6,13 @@
 double randfrom();
 void datosOrdenados(double *ciclos);
 
-#define N 40
+int N=0;
 
 void main(int argc, char *argv[]){
 	
 	int L = atoi(argv[1]);
 	int D = atoi(argv[2]);
-	
+	N = atoi(argv[3]);
 	int R = (64*L)/(8*D);
 
 	int *e = (int*)malloc(R*sizeof(int));
@@ -42,8 +42,9 @@ void main(int argc, char *argv[]){
 
 	
 	//Se imprimen los resultados
+	FILE *f = fopen("auxiliar.txt", "w");
 	for(int i = 0; i < N; i++)
-		printf("%f ", S[i]);
+		fprintf(f, "%f ", S[i]);
 	
 	datosOrdenados(ciclos);
 
