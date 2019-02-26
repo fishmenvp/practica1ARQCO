@@ -16,7 +16,7 @@ void main(int argc, char *argv[]){
 	int R = (64*L)/(8*D);
 
 	int *e = (int*)malloc(R*sizeof(int));
-	double suma = 0, S[10], *A, ciclos[N];
+	double suma = 0, S[N], *A, ciclos[N];
         	
 	A = (double*)_mm_malloc(D*R*sizeof(double), 64);
 	
@@ -42,7 +42,7 @@ void main(int argc, char *argv[]){
 
 	
 	//Se imprimen los resultados
-	for(int i = 0; i < 10; i++)
+	for(int i = 0; i < N; i++)
 		printf("%f ", S[i]);
 	
 	datosOrdenados(ciclos);
