@@ -13,10 +13,12 @@ void main(int argc, char *argv[]){
 	int L = atoi(argv[1]);
 	int D = atoi(argv[2]);
 	N = atoi(argv[3]);
-	int R = (64*L)/(8*D);
+	
+	//Cálculo del techo
+	int R = 1 + ((8*L - 1) / D );
 
 	int *e = (int*)malloc(R*sizeof(int));
-	double suma = 0, S[N], *A, ciclos[N];
+	double suma = 0, S[N], *A, ciclos=0;
         	
 	A = (double*)_mm_malloc(D*R*sizeof(double), 64);
 	
@@ -25,48 +27,30 @@ void main(int argc, char *argv[]){
 		A[i]= randfrom();
 	for(int i = 0; i < R; i++)
 		e[i] = i*D;
-	for(int i = 0; i < N; i++)
-		ciclos[i] = 0;
 
 	//Se realiza N veces la suma
-	
+	start_counter();
 	for(int i =0; i < N;i++){
-		start_counter();
 		for(int j = 0; j < R; j++){
 			suma += A[e[j]];
 		}
-		ciclos[i] = get_counter()/R;	
 		S[i] = suma;
 		suma = 0;
 	}
+	ciclos = get_counter();	
 
 	
 	//Se imprimen los resultados
 	FILE *f = fopen("auxiliar.txt", "w");
-	for(int i = 0; i < N; i++)
+	for(int i = 0; i < N; i++){
 		fprintf(f, "%f ", S[i]);
+	}
 	
-	datosOrdenados(ciclos);
-
-	printf("%d %f %d\n", L, ciclos[N/2], D);
+	printf("%d %f %d\n", L, ciclos/(R*N), D);
 	_mm_free(A);
 
 
 	exit(1);
-}
-
-void datosOrdenados(double *ciclos){
-	int aux =0;
-	for (int i=0; i<N-1; i++){
-  		 for (int j=i+1; j<N; j++){
-    			if(ciclos[i]>ciclos[j]){
-     				aux = ciclos[i];
-    				ciclos[i] = ciclos[j];
-     				ciclos[j] = aux;
-    			}
-  		}
-	}
-	return;
 }
 
 

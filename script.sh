@@ -2,7 +2,7 @@
 
 gcc -o computos.out computos.c rutinas_clock.c -msse3
 
-echo L Ciclos D > resultados.txt
+echo L Ciclos D > $1
 
 #S1=$((2**9))
 #S2=$((2**12))
@@ -16,6 +16,6 @@ do
 	for D in $LISTA2
 	do
 		echo $L
-		./computos.out $L $D $N >> resultados.txt
+		./computos.out $L $D $N >> $1
 	done
 done
