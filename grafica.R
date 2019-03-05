@@ -1,7 +1,6 @@
 
 
-resultados = read.table("resultados.txt", header = TRUE)
-
+resultados = read.table("resultados/resultados.txt", header = TRUE)
 head(resultados)
 
 #install.packages("dplyr")

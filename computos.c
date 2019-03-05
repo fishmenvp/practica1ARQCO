@@ -14,9 +14,12 @@ void main(int argc, char *argv[]){
 	int D = atoi(argv[2]);
 	N = atoi(argv[3]);
 	
-	//Cálculo del techo
-	int R = 1 + ((8*L - 1) / D );
-
+	//Cálculo del R
+	int R; 
+	if(D < 8) 
+		R=1 + ((8*L - 1) / D );
+	else if (D >= 8)
+	       	R = L;	
 	int *e = (int*)malloc(R*sizeof(int));
 	double suma = 0, S[N], *A, ciclos=0;
         	

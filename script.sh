@@ -1,6 +1,6 @@
 #Script para compilar
 
-gcc -o computos.out computos.c rutinas_clock.c -msse3
+gcc -o computos.out computos.c rutinas_clock.c -msse3 -O0
 
 echo L Ciclos D > $1
 
